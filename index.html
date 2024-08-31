@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Web App</title>
+</head>
+<body>
+    <h1>Hello, this is your Web App inside Telegram!</h1>
+    <button id="registerButton">Register</button>
+
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+        // Инициализация Telegram Web App
+        const tg = window.Telegram.WebApp;
+
+        // Настройка кнопки регистрации
+        document.getElementById('registerButton').addEventListener('click', () => {
+            tg.MainButton.text = "Registering...";
+            tg.MainButton.show();
+            tg.sendData("user_registration"); // Отправка данных боту
+        });
+
+        tg.ready(); // Говорим Telegram, что веб-приложение готово к работе
+    </script>
+</body>
+</html>
